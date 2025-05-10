@@ -7,7 +7,6 @@ exports.registerUser = async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res
-      .status(400)
       .json(errorResponse("Validation Error", 400, errors.array()));
   }
 
@@ -17,7 +16,6 @@ exports.registerUser = async (req, res) => {
     let user = await User.findOne({ email });
     if (user) {
       return res
-        .status(400)
         .json(errorResponse("User Already Exists", 400));
     }
 
@@ -25,11 +23,9 @@ exports.registerUser = async (req, res) => {
     await user.save();
 
     res
-      .status(201)
       .json(successResponse(user, "User Created Successfully", 201));
   } catch (err) {
     res
-      .status(500)
       .json(errorResponse("Server Error", 500, err.message));
   }
 };
@@ -53,11 +49,9 @@ exports.loginUser = async (req, res) => {
     };
 
     res
-      .status(200)
       .json(successResponse(userData, "User Fetched Successfully", 200));
   } catch (err) {
     res
-      .status(500)
       .json(errorResponse("Server Error", 500, err.message));
   }
 };
