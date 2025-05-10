@@ -27,7 +27,7 @@ exports.bookActivity = async (req, res) => {
 
     await booking.save();
     return res
-        .json(successResponse("Activity Booked Successfully", 201));
+        .json(successResponse({ bookingId: booking._id } , "Activity Booked Successfully", 201 ));
   } catch (err) {
     return res
         .json(errorResponse(err.message));
