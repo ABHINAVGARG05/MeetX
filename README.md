@@ -174,7 +174,7 @@ npm start
 ##  Postman Collection
 
  A Postman Collection is available for API testing. You can import it to test endpoints.  
-(Provide a link here if hosted or export from Postman and share with team/reviewer)
+[Link](https://www.postman.com/abhinav-meetx/meetx)
 
 ---
 
